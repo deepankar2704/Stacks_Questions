@@ -1,0 +1,37 @@
+void insertSort(stack<int> &s, int target)
+{
+    // base case
+    if(s.empty())
+    {
+        s.push(target);
+        return;
+    }
+    
+    if(target>s.top())
+    {
+        s.push(target);
+        return;
+    }
+    
+    int topElement=s.top();
+    s.pop();
+    
+    // recursive call
+    insertSort(s,target);
+    
+    // backtrack
+    s.push(topElement);
+    
+}
+void SortedStack :: sort()
+{
+   // base case
+   if(s.empty())
+   return;
+   
+   int topElement=s.top();
+   s.pop();
+   
+   sort();
+   insertSort(s,topElement);
+}
