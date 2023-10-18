@@ -1,0 +1,36 @@
+Input: s = "(()())(())"
+Output: "()()()"
+CODE:
+string removeOuterParentheses(string s) {
+        int count=0;
+        int n=s.length();
+        string ans="";
+
+        for(int i=0; i<n; i++)
+        {
+            char ch=s[i];
+            if(ch=='(' && count==0)
+            {
+                count++;
+            }
+
+            else if(ch=='(' && count>=1)
+            {
+                ans+=ch;
+                count++;
+            }
+
+            else if(ch==')' && count>1)
+            {
+                ans+=ch;
+                count--;
+            }
+
+            else if(ch==')' && count==1)
+            {
+                count--;
+            }
+        }
+
+        return ans;
+    }
